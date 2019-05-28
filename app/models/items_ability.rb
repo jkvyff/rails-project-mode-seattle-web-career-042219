@@ -1,0 +1,2 @@
+class ItemsAbility < ApplicationRecord
+end

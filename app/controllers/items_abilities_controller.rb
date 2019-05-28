@@ -1,0 +1,2 @@
+class ItemsAbilitiesController < ApplicationController
+end

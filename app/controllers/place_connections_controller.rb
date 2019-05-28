@@ -1,0 +1,2 @@
+class PlaceConnectionsController < ApplicationController
+end
