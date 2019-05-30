@@ -1,0 +1,4 @@
+<%= form_for @character do |f| %>
+  <%= f.collection_select :items , Item.all, :id, :name, {:include_blank=>"Select Item to Pickup"} %><br>
+  <%= f.submit "Pickup Item" %>
+<% end %>

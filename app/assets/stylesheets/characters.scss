@@ -23,33 +23,33 @@ img{
 	display: table-cell;
 	width: 35%;
 	height: 24vh;
-	border: 10px solid chocolate;
+	border: 1vh solid chocolate;
 }
 
 #items {
 	display: table-cell;
 	width: 60%;
 	height: 24vh;
-	border: 10px solid orange;
+	border: 1vh solid orange;
 }
 
 .box1 {
 	display: inline-block;
 	width: 40%;
 	height: 3vh;
-	margin: 1em;
+	margin: 1vh;
 	padding: 3vh 0;
 	text-align: center;
-	border: 5px dotted orangered;
+	border: 1vh dotted orangered;
 }
 
 .box2 {
 	display: inline-block;
 	width: 20%;
 	height: 3vh;
-	margin: 1em;
+	margin: 1vh;
 	padding: 3vh 0;
 	text-align: center;
-	border: 5px dashed gold;
+	border: 1vh dashed gold;
 }
 

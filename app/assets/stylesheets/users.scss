@@ -20,8 +20,9 @@ body {
     background-image: url('https://i.redd.it/9zstru7t2cr01.jpg')
 }
 
-input[type="submit"] {
-  background: url(images/shopping-cart/check-out-btn.png);
+.top input[type="submit"] {
+  color: white;
+  background: url(blank.png);
   font-weight: bold;
   font-size: 50px;
   border: 0;

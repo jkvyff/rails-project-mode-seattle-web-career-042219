@@ -6,15 +6,13 @@ class CharactersController < ApplicationController
 
 	def update
 		@character = Character.find(params[:id])
-		@character.update(params.require(:character).permit(:place_id))
-		redirect_to @character
-	end
-
-	def add_item
-		params
-		@character = Character.find(params[:id])
-		item = params[:character][:items]
-		@character.update(params.require(:character).permit(:items))
+		if params[:character][:place_id] && params[:commit] == "Travel to"
+			@character.update(params.require(:character).permit(:place_id))
+		elsif params[:character][:items] && params[:commit] == "Pickup Item"
+			CharactersItem.create(character_id: @character.id, item_id: params[:character][:items])
+		elsif params[:character][:items] && params[:commit] == "Use Item"
+			item = CharactersItem.where(character_id: @character.id, item_id: params[:character][:items]).first.destroy
+		end
 		redirect_to @character
 	end
 		

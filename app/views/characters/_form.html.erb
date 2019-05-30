@@ -1,4 +1,0 @@
-<%= form_for @character do |f| %>
-  <%= f.collection_select :place_id, Character.all, :id, :name, {:include_blank=>"Talk to"} %><br>
-  <%= f.submit "Lets Talk" %>
-<% end %>
