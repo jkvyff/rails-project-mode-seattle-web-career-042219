@@ -1,4 +1,4 @@
 <%= form_for @character do |f| %>
-  <%= f.collection_select :items , @character.items, :id, :name, {:include_blank=>"Select Item to use"} %><br>
+  <%= f.collection_select :items , @character.items, :id, :name, {:include_blank=>"Select Item"} %><br>
   <%= f.submit "Use Item" %>
 <% end %>
