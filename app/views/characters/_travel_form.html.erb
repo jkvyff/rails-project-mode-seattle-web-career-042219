@@ -1,0 +1,4 @@
+<%= form_for @character do |f| %>
+  <%= f.collection_select :place_id, @character.place.places, :id, :name, {:include_blank=>"Select Destination"} %><br>
+  <%= f.submit "Travel to" %>
+<% end %>
