@@ -14,10 +14,11 @@ class UsersController < ApplicationController
 
     def create
         @user = User.create(user_params)
-        if @user
+        if @user.save
+            session[:username] = @user.username
             redirect_to @user
         else 
-            redirect_to :new
+            redirect_to 'login'
         end
     end
 
