@@ -39,8 +39,8 @@ pc12 = PlaceConnection.create(current_place_id: p7.id, next_place_id: p6.id)
 
 
 # Characters
-c1 = Character.create(name: 'Ben Wade', gender: 'male', worth: 10, lvl: 1, intelligence: 7, luck: 5, perception: 3, user_id: u1.id, place_id: p1.id)
-c2 = Character.create(name: 'Wilhawk Tribe', gender: 'female', worth: 11, lvl: 4, intelligence: 9, luck: 3, perception: 8, user_id: u1.id, place_id: p1.id)
+c1 = Character.create(name: 'Ben Wade', gender: 'male', worth: 10, lvl: 1, intelligence: 7, luck: 5, perception: 3, greeting: "Howdy Partner. if you ever need a good lasso, I'm your man.", user_id: u1.id, place_id: p1.id)
+c2 = Character.create(name: 'Wilhawk Tribe', gender: 'female', worth: 11, lvl: 4, intelligence: 9, luck: 3, perception: 8, greeting: "Watch yourself out there, its pretty dangerous for the weak.", user_id: u1.id, place_id: p1.id)
 
 # Items
 i1 = Item.create(name: "Gold Coin", description: "It's worth something", amount: 1, value: 1)

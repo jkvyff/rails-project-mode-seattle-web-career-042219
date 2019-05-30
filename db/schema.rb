@@ -27,6 +27,7 @@ ActiveRecord::Schema.define(version: 2019_05_28_200522) do
     t.integer "intelligence"
     t.integer "luck"
     t.integer "perception"
+    t.string "greeting"
     t.integer "user_id"
     t.integer "place_id"
     t.datetime "created_at", null: false

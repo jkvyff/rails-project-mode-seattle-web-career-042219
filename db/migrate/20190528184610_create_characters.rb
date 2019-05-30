@@ -8,6 +8,7 @@ class CreateCharacters < ActiveRecord::Migration[5.2]
       t.integer :intelligence
       t.integer :luck
       t.integer :perception
+      t.string :greeting
       t.integer :user_id
       t.integer :place_id
 
