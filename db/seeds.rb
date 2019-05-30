@@ -40,6 +40,21 @@ pc12 = PlaceConnection.create(current_place_id: p7.id, next_place_id: p6.id)
 
 # Characters
 c1 = Character.create(name: 'Ben Wade', gender: 'male', worth: 10, lvl: 1, intelligence: 7, luck: 5, perception: 3, user_id: u1.id, place_id: p1.id)
+c2 = Character.create(name: 'Wilhawk Tribe', gender: 'female', worth: 11, lvl: 4, intelligence: 9, luck: 3, perception: 8, user_id: u1.id, place_id: p1.id)
+
+# Items
+i1 = Item.create(name: "Gold Coin", description: "It's worth something", amount: 1, value: 1)
+i2 = Item.create(name: "Gold Nugget", description: "Shiny Shiny", amount: 1, value: 5)
+i3 = Item.create(name: "Ruby Gem", description: "I've been looking for you", amount: 1, value: 42219)
+
+i4 = Item.create(name: "Fishing Rod", description: "Now where is some water", amount: 1, value: 15)
+i5 = Item.create(name: "Pick", description: "Helps you dig", amount: 1, value: 3)
+
+# Item Connections
+i1 = CharactersItem.create(character_id: c1.id, item_id: i1.id)
+i2 = CharactersItem.create(character_id: c1.id, item_id: i4.id)
+
+
 
 
 

@@ -1,3 +1,55 @@
 // Place all the styles related to the Characters controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper {
+	width: 100%;
+	height: 70vh;
+}
+
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+#ui {
+	background-color: saddlebrown;
+	display: table;
+	width: 100%;
+	height: 24vh;
+}
+
+#forms {
+	display: table-cell;
+	width: 35%;
+	height: 24vh;
+	border: 10px solid chocolate;
+}
+
+#items {
+	display: table-cell;
+	width: 60%;
+	height: 24vh;
+	border: 10px solid orange;
+}
+
+.box1 {
+	display: inline-block;
+	width: 40%;
+	height: 3vh;
+	margin: 1em;
+	padding: 3vh 0;
+	text-align: center;
+	border: 5px dotted orangered;
+}
+
+.box2 {
+	display: inline-block;
+	width: 20%;
+	height: 3vh;
+	margin: 1em;
+	padding: 3vh 0;
+	text-align: center;
+	border: 5px dashed gold;
+}
+

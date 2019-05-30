@@ -1,0 +1,4 @@
+<%= form_for @character, html: { method: :add_item, remote: true } do |f| %>
+  <%= f.collection_select :items , @character.items, :id, :name, {:include_blank=>"Select Item to use"} %><br>
+  <%= f.submit "Use Item" %>
+<% end %>
