@@ -4,6 +4,23 @@ class CharactersController < ApplicationController
 		@place_img = get_place_img
 	end
 
+	def create
+		@character = Character.new
+		@character.name = params[:character][:name]
+    	@character.gender = params[:character][:gender]
+    	@character.worth = rand(1..10)
+    	@character.lvl = 1
+    	@character.intelligence = rand(1..10)
+    	@character.luck = rand(1..10)
+    	@character.perception = rand(1..10)
+    	@character.greeting = params[:character][:greeting]
+    	@character.user_id = flash[:user_id]
+    	@character.place_id = 1
+    	@character.save
+    	CharactersItem.create(character_id: @character.id, item_id: Item.all.sample.id, amount: 1)
+    	redirect_to @character
+	end
+
 	def update
 		@character = Character.find(params[:id])
 		check_forms

@@ -10,6 +10,8 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        @character = Character.new
+        flash[:user_id] = @user.id
     end
 
     def create
