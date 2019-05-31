@@ -1,12 +1,13 @@
 class CharactersController < ApplicationController
 	def show
 		@character = Character.find(params[:id])
+		redirect_to '/login' if session[:user_id] != @character.user_id
 		@place_img = get_place_img
 	end
 
 	def create
 		create_character
-    	redirect_to @character
+		redirect_to @character
 	end
 
 	def update
@@ -29,17 +30,17 @@ class CharactersController < ApplicationController
 	def create_character
 		@character = Character.new
 		@character.name = params[:character][:name]
-    	@character.gender = params[:character][:gender]
-    	@character.worth = rand(1..10)
-    	@character.lvl = 1
-    	@character.intelligence = rand(1..10)
-    	@character.luck = rand(1..10)
-    	@character.perception = rand(1..10)
-    	@character.greeting = params[:character][:greeting]
-    	@character.user_id = flash[:user_id]
-    	@character.place_id = 1
-    	@character.save
-    	CharactersItem.create(character_id: @character.id, item_id: Item.all.sample.id, amount: 1)
+		@character.gender = params[:character][:gender]
+		@character.worth = rand(1..10)
+		@character.lvl = 1
+		@character.intelligence = rand(1..10)
+		@character.luck = rand(1..10)
+		@character.perception = rand(1..10)
+		@character.greeting = params[:character][:greeting]
+		@character.user_id = flash[:user_id]
+		@character.place_id = 1
+		@character.save
+		CharactersItem.create(character_id: @character.id, item_id: Item.all.sample.id, amount: 1)
 	end
 
 	def check_forms
