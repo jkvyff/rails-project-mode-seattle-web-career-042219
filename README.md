@@ -1,4 +1,3 @@
-# README
 # WWW WILD WILD WEST
 
 # Description
