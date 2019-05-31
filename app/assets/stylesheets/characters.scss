@@ -7,10 +7,34 @@
 	height: 67vh;
 }
 
-img{
+img {
     width: 100%;
     height: 100%;
     object-fit: cover;
+}
+
+#character {
+	width: 45vh;
+	height: 30vh;
+	position: absolute;
+	bottom: 32vh;
+	left: 10vh;
+}
+
+#map {
+	width: 10vh;
+	height: 10vh;
+	position: absolute;
+	top: 0;
+	right: 0;
+	margin: 1vh;
+	opacity: 0.6;
+	transition: all .2s ease-in-out;
+}
+
+#map:hover {
+	opacity: 1;
+	transform: matrix(6, 0, 0, 6, -240, 240);
 }
 
 #name_info div {
