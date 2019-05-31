@@ -4,7 +4,7 @@ PlaceConnection.destroy_all
 Character.destroy_all
 
 # User
-u1 = User.create(username: 'admin', password: 'Milan')
+u1 = User.create(username: 'admin', password: '042219')
 
 
 # Places

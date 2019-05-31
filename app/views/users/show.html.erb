@@ -7,13 +7,12 @@
 
 <div class="select_table">
 	<div id="characters">
-		<label> Character Select </label><br>
+		<label> Character Select </label><br><br>
 		<% @user.characters.each.with_index(1) do |character, i| %>
 			<strong><%= link_to character.name, character %></strong><br>
 			Gender: <%= character.gender %>
 			Lvl: <%= character.lvl %>
-
-			<br>
+			<%= button_to "delete", character, :method => :delete %><br>
 		<% end %>
 	</div>
 
@@ -23,14 +22,16 @@
 	<div id="gen_character">
 		<label> Make a new character </label><br>
 		<%= form_for @character do |f| %>
-		Name:
-		<%= f.text_field :name %><br>
-		Gender:
-		<%= f.text_field :gender %><br>
-		Greeting:
-		<%= f.text_field :greeting %><br>
+		<p> 
+			Name: <br>
+			<%= f.text_field :name %><br>
+			Gender: <br>
+			<%= f.text_field :gender %><br>
+			Greeting: <br>
+			<%= f.text_field :greeting %><br>
 
-  		<%= f.submit "Create Character" %>
+			<%= f.submit "Create Character" %>
+  		</p>
 <% end %>
 	</div>
 </div>

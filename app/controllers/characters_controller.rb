@@ -27,6 +27,10 @@ class CharactersController < ApplicationController
 		redirect_to @character
 	end
 		
+	def destroy
+		Character.find(params[:id]).destroy
+		redirect_to User.find(session[:user_id])
+	end
 
 	private
 
