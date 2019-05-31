@@ -14,7 +14,7 @@ p3 = Place.create(name: 'Pond', description: 'Looks like a nice pond, I wonder i
 p4 = Place.create(name: 'Mine', description: 'The abandoned gold mine, looks like prospectors gave up on it years ago. I wonder if they left anything?')
 p5 = Place.create(name: 'Saloon', description: 'Old Mike always has a cold brew in your hand. watch your wallet though.')
 p6 = Place.create(name: 'Jail', description: 'Only a few prisoners here, maybe they would be an interesting chat.')
-p7 = Place.create(name: 'Grave Yard', description: 'Scary at this time of night.... Woah, someone could trip in that open grave.')
+p7 = Place.create(name: 'Graveyard', description: 'Scary at this time of night.... Woah, someone could trip in that open grave.')
 
 
 # Place Connections
