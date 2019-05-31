@@ -10,15 +10,19 @@ class UsersController < ApplicationController
 
     def show
         @user = User.find(params[:id])
+        if session[:user_id] != @user.id
+            redirect_to '/login'
+        end
     end
 
     def create
-        @user = User.create(user_params)
+        @user = User.new(user_params)
         if @user.save
             session[:username] = @user.username
             redirect_to @user
-        else 
-            redirect_to 'login'
+        else
+            flash[:warning] = "Enter Username and Password (6 or more characters)"
+            redirect_to new_user_path
         end
     end
 
