@@ -1,2 +1,33 @@
 <center>
-<label><%= @user.username %></label>
+	<label><%= @user.username %></label>
+</center>
+
+<div class="select_table">
+	<div id="characters">
+		<label> Character Select </label><br>
+		<% @user.characters.each.with_index(1) do |character, i| %>
+			<strong><%= link_to character.name, character %></strong><br>
+			Gender: <%= character.gender %>
+			Lvl: <%= character.lvl %>
+
+			<br>
+		<% end %>
+	</div>
+
+	<div class="space-10">
+	</div>
+	
+	<div id="gen_character">
+		<label> Make a new character </label><br>
+		<%= form_for @character do |f| %>
+		Name:
+		<%= f.text_field :name %><br>
+		Gender:
+		<%= f.text_field :gender %><br>
+		Greeting:
+		<%= f.text_field :greeting %><br>
+
+  		<%= f.submit "Create Character" %>
+<% end %>
+	</div>
+</div>
