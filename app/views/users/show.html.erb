@@ -1,5 +1,8 @@
 <center>
-	<label><%= @user.username %></label>
+	<label><%= @user.username %></label><br>
+	<form class='update' action="<%= edit_user_path %>">
+    <input type="submit" value= 'Change Password'>
+</form>
 </center>
 
 <div class="select_table">

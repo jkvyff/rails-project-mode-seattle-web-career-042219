@@ -9,6 +9,11 @@ h1 {
     font-family: 'Rye', cursive;
   }
 
+h1.smaller {
+  font-size: 50px;
+}
+
+
 label {
     font-weight: lighter;
     color: rgb(255, 255, 255);
@@ -53,4 +58,20 @@ body {
   border-radius:10px;
   opacity:0.7; 
   margin: 10vh 10vh;
+}
+
+#notice div {
+  color: rgb(255, 0, 0);
+  background: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 30px;
+  margin: 3vh 30vw;
+}
+
+ #warning div {
+  color: rgb(255, 0, 0);
+  background: rgb(0, 0, 0);
+  font-weight: bold;
+  font-size: 30px;
+  margin: 3vh 30vw;
 }
