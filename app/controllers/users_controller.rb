@@ -9,7 +9,7 @@ class UsersController < ApplicationController
     end
 
     def show
-        @user = User.find(params[:id])
+        find_params
         @character = Character.new
         flash[:user_id] = @user.id
         if session[:user_id] != @user.id
@@ -29,7 +29,21 @@ class UsersController < ApplicationController
     end
 
     def edit
-        @user = User.find(params[:id])
+        find_params
+        if session[:user_id] != @user.id
+            redirect_to @user
+        end
+    end
+
+    def update
+        find_params
+        if @user.authenticate(user_params[:password])
+            @user.update(user_params)
+            render @user
+        else
+            flash[:check] = "Provide a valid password"
+            redirect_to edit_user_path
+        end
     end
 
 
@@ -37,6 +51,10 @@ class UsersController < ApplicationController
 
     def user_params
         params.require(:user).permit(:username, :password)
+    end
+
+    def find_params
+        @user = User.find(params[:id])
     end
         
 end

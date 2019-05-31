@@ -1,13 +1,13 @@
-  <center>
-<h1>Create User</h1>
+<center>
+<h1 class = "smaller">Change Password</h1>
 <%= form_for @user do |f| %>
-    <label>Username</label><br>
-        <%= f.text_field :username%><br>
     <label>Password</label><br>
+        <%= f.password_field :password%><br>
+    <label>Change Password</label><br>
         <%= f.password_field :password%><br>
       <%= f.submit %>
 <% end %>
 
-<div id='warning'>
+<div id='check'>
     <div><%= flash[:warning] %> </div>
 </div>
