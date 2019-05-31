@@ -5,19 +5,7 @@ class CharactersController < ApplicationController
 	end
 
 	def create
-		@character = Character.new
-		@character.name = params[:character][:name]
-    	@character.gender = params[:character][:gender]
-    	@character.worth = rand(1..10)
-    	@character.lvl = 1
-    	@character.intelligence = rand(1..10)
-    	@character.luck = rand(1..10)
-    	@character.perception = rand(1..10)
-    	@character.greeting = params[:character][:greeting]
-    	@character.user_id = flash[:user_id]
-    	@character.place_id = 1
-    	@character.save
-    	CharactersItem.create(character_id: @character.id, item_id: Item.all.sample.id, amount: 1)
+		create_character
     	redirect_to @character
 	end
 
@@ -35,24 +23,23 @@ class CharactersController < ApplicationController
 	private
 
 	def get_place_img
-		place_name = @character.place.name
+		@character.place.name.downcase + ".jpg"
+	end
 
-		case place_name
-		when 'Fountain'
-			'fountain.jpg'
-		when 'Shop'
-			'shop.jpg'
-		when 'Pond'
-			'pond.jpg'
-		when 'Mine'
-			'mine.jpg'
-		when 'Saloon'
-			'saloon.jpg'
-		when 'Jail'
-			'jail.jpg'
-		when 'Grave Yard'
-			'graveyard.jpg'
-		end
+	def create_character
+		@character = Character.new
+		@character.name = params[:character][:name]
+    	@character.gender = params[:character][:gender]
+    	@character.worth = rand(1..10)
+    	@character.lvl = 1
+    	@character.intelligence = rand(1..10)
+    	@character.luck = rand(1..10)
+    	@character.perception = rand(1..10)
+    	@character.greeting = params[:character][:greeting]
+    	@character.user_id = flash[:user_id]
+    	@character.place_id = 1
+    	@character.save
+    	CharactersItem.create(character_id: @character.id, item_id: Item.all.sample.id, amount: 1)
 	end
 
 	def check_forms
