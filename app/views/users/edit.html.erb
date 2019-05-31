@@ -1,13 +1,13 @@
 <center>
 <h1 class = "smaller">Change Password</h1>
 <%= form_for @user do |f| %>
-    <label>Password</label><br>
-        <%= f.password_field :password%><br>
-    <label>Change Password</label><br>
+    <label>Current Password</label><br>
+        <%= f.password_field :current_password%><br>
+    <label>New Password</label><br>
         <%= f.password_field :password%><br>
       <%= f.submit %>
 <% end %>
 
 <div id='check'>
-    <div><%= flash[:warning] %> </div>
+    <div><%= flash[:check] %> </div>
 </div>

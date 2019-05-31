@@ -30,19 +30,22 @@ class UsersController < ApplicationController
 
     def edit
         find_params
-        if session[:user_id] != @user.id
-            redirect_to @user
+        if session[:user_id] == @user.id
+            render :edit
+        else
+            redirect_to '/login'
         end
     end
 
     def update
         find_params
-        if @user.authenticate(user_params[:password])
-            @user.update(user_params)
-            render @user
+        if @user.authenticate(params[:user][:current_password])
+            @user.update(password: params[:user][:password])
+            redirect_to @user
         else
             flash[:check] = "Provide a valid password"
-            redirect_to edit_user_path
+            @user.errors.add :current_password
+            render :edit
         end
     end
 
@@ -55,6 +58,10 @@ class UsersController < ApplicationController
 
     def find_params
         @user = User.find(params[:id])
+    end
+
+    def update_params(*args)
+        params.require(:user).permit(args)
     end
         
 end
