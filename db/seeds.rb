@@ -41,18 +41,25 @@ pc12 = PlaceConnection.create(current_place_id: p7.id, next_place_id: p6.id)
 # Characters
 c1 = Character.create(name: 'Ben Wade', gender: 'male', worth: 10, lvl: 1, intelligence: 7, luck: 5, perception: 3, greeting: "Howdy Partner. if you ever need a good lasso, I'm your man.", user_id: u1.id, place_id: p1.id)
 c2 = Character.create(name: 'Wilhawk Tribe', gender: 'female', worth: 11, lvl: 4, intelligence: 9, luck: 3, perception: 8, greeting: "Watch yourself out there, its pretty dangerous for the weak.", user_id: u1.id, place_id: p1.id)
+c3 = Character.create(name: 'Smilly Harol', gender: 'male', worth: 17, lvl: 2, intelligence: 7, luck: 10, perception: 1, greeting: "Come closer, So I can smell ya.", user_id: u1.id, place_id: p6.id)
+c4 = Character.create(name: "Ol' Mike", gender: 'male', worth: 11, lvl: 4, intelligence: 9, luck: 3, perception: 8, greeting: "Here is another Kombucha.", user_id: u1.id, place_id: p5.id)
+c5 = Character.create(name: "lil' Bess", gender: 'female', worth: 40, lvl: 4, intelligence: 9, luck: 3, perception: 8, greeting: "M0000000.", user_id: u1.id, place_id: p3.id)
+c6 = Character.create(name: 'Danny, The Champion of the World', gender: 'unknown', worth: 0, lvl: 99, intelligence: 2, luck: 10, perception: 3, greeting: "You made it, it's been scary without you", user_id: u1.id, place_id: p7.id)
 
 # Items
-i1 = Item.create(name: "Gold Coin", description: "It's worth something", amount: 1, value: 1)
-i2 = Item.create(name: "Gold Nugget", description: "Shiny Shiny", amount: 1, value: 5)
-i3 = Item.create(name: "Ruby Gem", description: "I've been looking for you", amount: 1, value: 42219)
+i1 = Item.create(name: "Gold Coin", description: "It's worth something", value: 1)
+i2 = Item.create(name: "Gold Nugget", description: "Shiny Shiny", value: 5)
+i3 = Item.create(name: "Ruby Gem", description: "I've been looking for you", value: 42219)
 
-i4 = Item.create(name: "Fishing Rod", description: "Now where is some water", amount: 1, value: 15)
-i5 = Item.create(name: "Pick", description: "Helps you dig", amount: 1, value: 3)
+i4 = Item.create(name: "Fishing Rod", description: "Now where is some water", value: 15)
+i5 = Item.create(name: "Pick", description: "Helps you dig", value: 3)
+i6 = Item.create(name: "Book", description: "I bet you won't read me", value: 30)
+i7 = Item.create(name: "Fish", description: "Yay, a new hat.", value: 7)
+
 
 # Item Connections
-i1 = CharactersItem.create(character_id: c1.id, item_id: i1.id)
-i2 = CharactersItem.create(character_id: c1.id, item_id: i4.id)
+i1 = CharactersItem.create(character_id: c1.id, item_id: i1.id, amount: 1)
+i2 = CharactersItem.create(character_id: c1.id, item_id: i4.id, amount: 1)
 
 
 

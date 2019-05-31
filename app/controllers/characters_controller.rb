@@ -6,22 +6,7 @@ class CharactersController < ApplicationController
 
 	def update
 		@character = Character.find(params[:id])
-		if params[:character][:place_id] && params[:commit] == "Travel to"
-			@character.update(params.require(:character).permit(:place_id))
-		elsif params[:character][:items] && params[:commit] == "Pickup Item"
-			CharactersItem.create(character_id: @character.id, item_id: params[:character][:items])
-		elsif params[:character][:items] && params[:commit] == "Use Item"
-			item = CharactersItem.where(character_id: @character.id, item_id: params[:character][:items]).first
-			item.destroy
-		elsif params[:character][:id] && params[:commit] == "Lets Talk"
-			if @character.id == params[:character][:id].to_i
-				flash[:name] = @character.name
-				flash[:message] = "Damn, Talking to myself again. Hope i'm not going crazy." 
-			else
-				flash[:name] = Character.find(params[:character][:id]).name
-				flash[:message] = Character.find(params[:character][:id].to_i).greeting
-			end
-		end
+		check_forms
 		redirect_to @character
 	end
 		
@@ -48,4 +33,46 @@ class CharactersController < ApplicationController
 			'graveyard.jpg'
 		end
 	end
+
+	def check_forms
+		if params[:character][:place_id] && params[:commit] == "Travel to"
+			travel_to
+		elsif params[:character][:items] && params[:commit] == "Pickup Item"
+			pickup_item
+		elsif params[:character][:items] && params[:commit] == "Use Item"
+			drop_items
+		elsif params[:character][:id] && params[:commit] == "Lets Talk"
+			talk
+		end
+	end
+
+	def travel_to
+		@character.update(params.require(:character).permit(:place_id))
+	end
+
+	def pickup_item
+		char_item = CharactersItem.where(character_id: @character.id, item_id: params[:character][:items])
+		if @character.items.include?(Item.find(params[:character][:items]))
+			char_item.update(amount: (char_item[0][:amount] + 1))
+		else
+			CharactersItem.create(character_id: @character.id, item_id: params[:character][:items], amount: 1)
+		end
+	end
+
+	def drop_items
+		item = CharactersItem.where(character_id: @character.id, item_id: params[:character][:items]).first
+		item.destroy
+	end
+
+	def talk
+		if @character.id == params[:character][:id].to_i
+			flash[:name] = @character.name
+			flash[:message] = "Damn, Talking to myself again. Hope i'm not going crazy." 
+		else
+			flash[:name] = Character.find(params[:character][:id]).name
+			flash[:message] = Character.find(params[:character][:id].to_i).greeting
+		end
+	end
+
+
 end

@@ -24,7 +24,7 @@
 		<% @character.items.each do |item| %>
 		<div class="box2">
 			<%= item.name %><br>
-			<%= item.amount%>
+			Val: <%= item.value %> Num:<%= CharactersItem.all.where(character_id: @character.id, item_id: item.id)[0][:amount] %>
 		</div>
 		<% end %>
 	</div>
